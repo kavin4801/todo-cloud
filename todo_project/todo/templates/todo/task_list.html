@@ -1,0 +1,12 @@
+<h1>To-Do List</h1>
+<a href="{% url 'add_task' %}">Add Task</a>  <!-- Link to the Add Task page -->
+<ul>
+    {% for task in tasks %}
+    <li>
+        <strong>{{ task.title }}</strong>   <!-- Display the task title -->
+        <p>{{ task.description }}</p>       <!-- Display the task description -->
+        <a href="{% url 'update_task' task.id %}">Edit</a>   <!-- Link to edit the task -->
+        <a href="{% url 'delete_task' task.id %}">Delete</a> <!-- Link to delete the task -->
+    </li>
+    {% endfor %}
+</ul>
